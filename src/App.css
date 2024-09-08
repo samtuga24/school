@@ -1,6 +1,5 @@
 .home-wrap{
   position: relative;
-  border: 2px solid blue;
   height: 100vh;
 }
 .nav-container{
@@ -94,7 +93,6 @@
   height: 42vh;
 }
 .home-image-container{
-  border: 2px solid blue;
   height: 42vh;
 }
 .login-container{
