@@ -7,7 +7,8 @@
   height: 8vh;
   display: flex;
   position: relative;
-  background-color: rgb(222, 219, 219);
+  background-color: rgb(234, 233, 233);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .nav-logo{
@@ -249,7 +250,7 @@
 .user-page-content{
   height: inherit;
   width: 80vw;
-  background-color: aliceblue;
+  background-color: rgb(234, 233, 233);
 }
 .user-filter{
   height: 10vh;

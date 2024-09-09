@@ -31,7 +31,7 @@ export const AdminLogin = () => {
         let passwordLength;
         if (checkUname.trim().length == 0) {
             unameLength = false;
-            alert("please enter uname")
+            alert("please enter username")
         } else {
 
             unameLength = true;

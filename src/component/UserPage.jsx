@@ -9,14 +9,14 @@ export const UserPage = () => {
     const getData = localStorage.getItem("user");
     const parsedData = JSON.parse(getData);
     const GET_JOBS_API = "http://localhost:8080/get-jobs"
-    
-    const GET_USER_API = "http://localhost:8080/get-applicants/"+parsedData.uname
+
+    const GET_USER_API = "http://localhost:8080/get-applicants/" + parsedData.uname
     const [jobs, setJobs] = useState([])
     const [dash, setDash] = useState(true)
     const [update, setUpdate] = useState(false)
     const [view, setView] = useState(false)
     const [job, setJob] = useState(false)
-    const [apply, setApply] = useState(false)
+    const [apply, setApply] = useState()
     const [client, setClient] = useState()
     const dashClick = () => {
         setDash(true)
@@ -73,20 +73,35 @@ export const UserPage = () => {
             })
     }, []);
     const GET_CV_API = "http://localhost:8080/apply/Capture.PNG"
-    
-    const clickViewCV = () =>{
+
+    const clickViewCV = () => {
         setDash(false)
         setUpdate(false)
         setView(true)
         setJob(false)
         axios.get(GET_CV_API)
-        .then(response => {
-            console.log(response.data, null, 2)
+            .then(response => {
+                console.log(response.data, null, 2)
 
 
-        }).catch((error) => {
-            console.log(error)
-        })
+            }).catch((error) => {
+                console.log(error)
+            })
+    }
+    const updateJob = () => {
+        axios
+            .post(`http://localhost:8080/update-job/${parsedData.uname}`, apply, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                alert(JSON.stringify(response.data))
+
+
+            }).catch((error) => {
+                alert(error)
+            })
     }
 
     return (
@@ -108,11 +123,11 @@ export const UserPage = () => {
                         <div className='side-nav-icon'><FontAwesomeIcon icon={faPenToSquare} /></div>
                         <div className='side-nav-text-1'>Update CV</div>
                     </div>
-
+{/* 
                     <div className='side-nav-item' onClick={clickViewCV}>
                         <div className='side-nav-icon'><FontAwesomeIcon icon={faEye} /></div>
                         <div className='side-nav-text-1'>View CV</div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='user-page-content'>
                     {/* <div className='user-filter'>
@@ -165,7 +180,7 @@ export const UserPage = () => {
                                                 <div className='result-label'>Deadline:</div>
                                                 <div className='result-text'>{job.deadline}</div>
                                             </div>
-                                            <div className='apply-button'><button className='a-btn'>Apply</button></div>
+                                            <div className='apply-button'><button className='a-btn' onClick={updateJob}>Apply</button></div>
                                         </div>
                                     );
                                 })}
