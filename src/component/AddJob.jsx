@@ -96,7 +96,7 @@ const submitForm = e => {
               }
           })
           .then((response) => {
-            alert(response)
+            alert(response.data)
           })
           .catch((error) => {
               alert(error)

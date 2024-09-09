@@ -60,7 +60,7 @@ export const UserPage = () => {
             }).catch((error) => {
                 console.log(error)
             })
-    }, []);
+    }, [jobs]);
 
     useEffect(() => {
         axios.get(GET_USER_API)
@@ -71,7 +71,7 @@ export const UserPage = () => {
             }).catch((error) => {
                 console.log(error)
             })
-    }, []);
+    }, [client]);
     const GET_CV_API = "http://localhost:8080/apply/Capture.PNG"
 
     const clickViewCV = () => {
@@ -123,43 +123,17 @@ export const UserPage = () => {
                         <div className='side-nav-icon'><FontAwesomeIcon icon={faPenToSquare} /></div>
                         <div className='side-nav-text-1'>Update CV</div>
                     </div>
-{/* 
-                    <div className='side-nav-item' onClick={clickViewCV}>
-                        <div className='side-nav-icon'><FontAwesomeIcon icon={faEye} /></div>
-                        <div className='side-nav-text-1'>View CV</div>
-                    </div> */}
+
                 </div>
                 <div className='user-page-content'>
-                    {/* <div className='user-filter'>
-                        <div className='filter'>
-                            <div className='filter-text'>Filter:</div>
-                            <div className='filter-select-wrap'>
-                                <select name="" id="" className='filter-select'>
-                                    <option value="">Technology</option>
-                                </select>
-                            </div>
-                            <div className='filter-button-wrap'>
-                                <div className='filter-icon'><FontAwesomeIcon icon={faFilter} /></div>
-                                <div className='filter-button'>Apply Filter</div>
-                            </div>
-                        </div>
-                    </div> */}
-                    <div className='user-search'>
-                        <div className='search'>
-                            <div className='search-input-wrap'>
-                                <div className='search-icon'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
-                                <input className='search-input' type="text" placeholder='search' />
-                            </div>
-                            <div className='search-button'><button className='s-bt'>search</button></div>
-                        </div>
-                    </div>
+
 
                     <div className='search-result-wrap'>
                         {dash &&
                             <div className='search-result'>
                                 {jobs.map((job, index) => {
                                     return (
-                                        <div className='result-wrap' onClick={() => setApply(job)}>
+                                        <div className='result-wrap' onMouseOver={() => setApply(job)}>
                                             <div className='result'>
                                                 <div className='result-label'>Job Title:</div>
                                                 <div className='result-text'>{job.title}</div>
