@@ -86,12 +86,6 @@ export const Dashboard = () => {
                         </div>
                         {angleDown &&
                             <div className='item-list-wrap'>
-                                <div className='item-list' onClick={studentClick}>
-                                    <div className='side-nav-icon'><FontAwesomeIcon icon={faUserPlus} /></div>
-                                    <div className='side-nav-text-1'>Add Student</div>
-                                </div>
-
-                 
 
                                 <div className='item-list' onClick={postClick}>
                                     <div className='side-nav-icon'><FontAwesomeIcon icon={faEye} /></div>
