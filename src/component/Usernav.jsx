@@ -13,6 +13,7 @@ export const Usernav = () => {
   return (
     <div className='nav-container'>
         <div className='nav-logo'><img src={icon} alt="" /></div>
+        <div className='nav-name'>Adu Gyamfi Memorial School</div>
         <div className='nav-icon'><FontAwesomeIcon icon={faCircleUser}/></div>
         <div className='nav-list'>{parsedData.uname}</div>
         <Link to='../' className='log-out' >
