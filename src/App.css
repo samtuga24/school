@@ -84,19 +84,23 @@
 .footer-container{
   height: 6vh;
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   align-items: center;
   justify-content: center;
   font-weight: 500;
+  background-color: #ffffff;
 }
 .job-container{
   border: 2px solid grey;
   height: 42vh;
 }
 .home-image-container{
-  height: 42vh;
+  height: 86vh;
+}
+.home-image-container img{
+  width: 100%;
 }
 .login-container{
   height: 100vh;
