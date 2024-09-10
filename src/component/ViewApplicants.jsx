@@ -1,11 +1,12 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Document } from 'react-pdf';
-
+import { faBan, faCheck } from '@fortawesome/free-solid-svg-icons';
 export const ViewApplicants = () => {
     const [apply, setJobs] = useState([])
     const [update, setUpdate] = useState([])
-
+    console.log(apply)
     const GET_JOBS_API = "http://localhost:8080/get-applicants"
     const VIEW_CV = "http://localhost:8080/display/"
     useEffect(() => {
@@ -16,6 +17,7 @@ export const ViewApplicants = () => {
                 console.log(error)
             })
     }, []);
+
     const rowClick = (cv) => {
        
         axios.get(`http://localhost:8080/display/${cv}`)
@@ -25,6 +27,21 @@ export const ViewApplicants = () => {
             }).catch((error) => {
                 console.log(error)
             })
+    }
+
+    const updateStatus = (e,email) =>{
+        e.stopPropagation();
+        axios
+          .patch(`http://localhost:8080/update-status/${email}`, {
+
+          })
+          .then(response => {
+            alert(JSON.stringify(response.data))
+
+
+          }).catch((error) => {
+            alert(error)
+          })
     }
     return (
         <div className='view-container'>
@@ -36,6 +53,8 @@ export const ViewApplicants = () => {
                         <th>Email</th>
                         <th>Phone Number</th>
                         <th>Job Title</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     {apply.map((job, index) => {
                         return (
@@ -45,6 +64,10 @@ export const ViewApplicants = () => {
                                 <td className='t-data'>{job.uname}</td>
                                 <td className='t-data'>{job.phoneNumber}</td>
                                 <td className='t-data'>{job.jobs[index].title}</td>
+                                <td className='t-data'>{job.jobStatus}</td>
+                                <td className='t-data action-btn' onClick={(e)=>updateStatus(e,job.uname)}>
+                                    <div className='accept-btn'><div className='accept-icon'><FontAwesomeIcon icon={faCheck}/></div><div className='accept-text'>Accept</div></div>
+                                </td>
                             </tr>
                         );
                     })}

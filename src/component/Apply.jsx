@@ -24,12 +24,12 @@ export const Apply = () => {
     }
 
     if (fileLength) {
-      var format = [".PDF", ".pdf"];
+      var format = [".jpeg", ".JPG", ".jpg", ".JPEG", ".PNG", ".png"];
       var extension = file.name.substr(file.name.indexOf('.'))
       if (format.includes(extension)) {
         ext = true;
       } else {
-        alert("only PDF or format is supported")
+        alert("only jpg or png format is supported")
         ext = false;
       }
 

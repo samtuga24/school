@@ -5,6 +5,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons'
 import { Usernav } from './Usernav'
 import axios from 'axios'
 import { Apply } from './Apply'
+import { JobList } from './JobList'
 export const UserPage = () => {
     const getData = localStorage.getItem("user");
     const parsedData = JSON.parse(getData);
@@ -164,6 +165,7 @@ export const UserPage = () => {
                         }
 
                         {update && <Apply />}
+                        {job && <JobList />}
                     </div>
                 </div>
 
