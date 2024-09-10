@@ -9,7 +9,7 @@ export const Home = () => {
     <div className='home-wrap'>
     <Nav/>
     <HomeImage/>
-    <JobList/>
+    {/* <JobList/> */}
     <Footer/>
     </div>
   )

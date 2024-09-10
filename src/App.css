@@ -89,6 +89,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
 }
 .job-container{
   border: 2px solid grey;
