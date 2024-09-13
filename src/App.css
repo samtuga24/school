@@ -439,6 +439,13 @@
   padding-left: 2%;
   padding-right: 2%;
 }
+.desc{
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
 .result-label{
   font-size: 1.1vw;
   font-weight: 600;
@@ -455,6 +462,15 @@
   align-items: center;
   padding-left: 1vw;
   cursor: default;
+}
+.desc-text{
+  width: 68%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  cursor: default;
+  word-wrap: break-word;
 }
 .apply-button{
   height: 5vh;
