@@ -139,9 +139,9 @@ export const UserPage = () => {
                                                 <div className='result-label'>Job Title:</div>
                                                 <div className='result-text'>{job.title}</div>
                                             </div>
-                                            <div className='desc'>
+                                            <div className='result'>
                                                 <div className='result-label'>Description:</div>
-                                                <div className='desc-text'>bhhbhsdubuy suysuyvusvuysv uysvyddddjjjj jjjjjjjjjjjj jjjjjjjjjjjjjjjjjjjjj jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</div>
+                                                <div className='desc-text'>{job.description}</div>
                                             </div>
                                             <div className='result'>
                                                 <div className='result-label'>Qualification:</div>
