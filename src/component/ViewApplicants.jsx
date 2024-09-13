@@ -67,7 +67,7 @@ export const ViewApplicants = () => {
                                             <td className='t-data'>{job.lname}</td>
                                             <td className='t-data'>{job.uname}</td>
                                             <td className='t-data'>{job.phoneNumber}</td>
-                                            <td className='t-data'>{job.jobs[index].title}</td>
+                                            <td className='t-data'>{details.title}</td>
                                             <td className='t-data'>{job.jobStatus}</td>
                                             <td className='t-data action-btn' onClick={(e) => updateStatus(e, job.uname)}>
                                                 <div className='accept-btn'><div className='accept-icon'><FontAwesomeIcon icon={faCheck} /></div><div className='accept-text'>Accept</div></div>
