@@ -17,21 +17,24 @@ export const ListedJobs = () => {
     }, []);
     return (
         <div className='view-container'>
+            <div className='login-header'>Listed Vacancies</div>
             <div className='result-table'>
                 <table className='table-width'>
                     <tr>
                         <th>Job Title</th>
                         <th>Qualification</th>
+                        <th>Years of Experience</th>
                         <th>Salary</th>
                         <th>deadline</th>
                     </tr>
                     {jobs.map((job, index) => {
                         return (
                             <tr>
-                                <td>{job.title}</td>
-                                <td>{job.qualification}</td>
-                                <td>{job.salary}</td>
-                                <td>{job.deadline}</td>
+                                <td className='t-data'>{job.title}</td>
+                                <td className='t-data'>{job.qualification}</td>
+                                <td className='t-data'>{job.experience}</td>
+                                <td className='t-data'>{job.salary}</td>
+                                <td className='t-data'>{job.deadline}</td>
                             </tr>
                         );
                     })}

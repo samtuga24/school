@@ -1,3 +1,4 @@
+
 .home-wrap{
   position: relative;
   height: 100vh;
@@ -6,9 +7,11 @@
   border: 1px solid rgb(244, 236, 236);
   height: 8vh;
   display: flex;
-  position: relative;
+  position: fixed;
+  width: 100%;
   background-color: rgb(234, 233, 233);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
 .nav-logo{
@@ -100,6 +103,8 @@
   width: 80%;
   padding-left: 2%;
   padding-right: 2%;
+  z-index: 1;
+  margin-top: 5vh;
 }
 
 .accept-wrap{
@@ -120,20 +125,59 @@
 }
 .home-image-container{
   height: 86vh;
+  overflow-y: hidden;
 }
 .home-image-container img{
   width: 100%;
+  height: 100vh;
+}
+
+.add-container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+  opacity: 1;
 }
 .login-container{
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+  background-color: rgb(187, 225, 249);
+  opacity: 1;
 }
 .login-wrap{
   width: 20%;
   position: relative;
-  padding-top: 5vh;
+  margin-top: 5vh;
+}
+.login-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  width: 100%;
+  font-size: 2vw;
+  margin-top: 10vh;
+  font-weight: 600;
+}
+.login-container::before{
+  position: absolute;
+  content: "";
+  background: url("./icons/Adu.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
 }
 .login-input{
 
@@ -152,11 +196,12 @@
   padding-left: 0.5vw;
 }
 .login{
-
+  position: relative;
   height: 5vh;
   width: 100%;
   margin-bottom: 3vh;
 }
+
 .login-button{
   text-decoration: none;
   display: flex;
@@ -181,17 +226,33 @@
 ::placeholder{
   font-size: 1.2vw;
 }
+.dashboard-wrap::before{
+  position: absolute;
+  content: "";
+  background: url("./icons/Adu.jpg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+}
+
 .dashboard-container{
   height: 100vh;
 }
+
 .dashboard-wrap{
   height: inherit;
   display: flex;
+  z-index: 1;
 }
 .side-nav{
   border: 1px solid rgb(164, 163, 163);
-  height: inherit;
+  height: 86vh;
   width: 20vw;
+  margin-top: 8vh;
+  z-index: 1;
 }
 .dash-content{
   height: inherit;
@@ -269,18 +330,35 @@
 .user-page-container{
   height: 92vh;
   display: flex;
+  
+}
+
+.user-page-content::before{
+  position: absolute;
+  content: "";
+  background: url("./icons/Adu.jpg");
+  width: 80vw;
+  height: 100%;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
 }
 
 .user-page-nav{
-  height: inherit;
+  height: 86vh;
+  margin-top: 8vh;
+  position: fixed;
   width: 20vw;
   border: 1px solid rgb(164, 163, 163);
 }
 
 .user-page-content{
-  height: inherit;
+  height: fit-content;
   width: 80vw;
-  background-color: rgb(234, 233, 233);
+  margin-left: 20vw;
+  overflow-x: hidden;
+  margin-top: 5vh;
 }
 .user-filter{
   height: 10vh;
@@ -418,6 +496,7 @@
 .search-result{
   width: 96%;
   padding-left: 5%;
+  z-index: 1;
 }
 .result-wrap{
   border: 1px solid gray;
@@ -431,6 +510,7 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
   padding-left: 0.5vw;
   padding-right: 0.5vw;
+  z-index: 1;
 }
 .result{
   display: flex;
@@ -538,20 +618,27 @@ textarea{
 .view-container{
 display: flex;
 justify-content: center;
+margin-top: 8vh;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 1;
+
 }
 .result-table{
 width: 90%;
+z-index: 1;
 }
 .table-width {
   width: 100%;
-  margin-top: 8vh;
+  margin-top: 2vh;
 }
 table,
 th,
 td {
   border: 1px solid black;
   border-collapse: collapse;
-  height: 6vh;
+  height: 5vh;
   cursor: default;
   
 }
@@ -605,4 +692,95 @@ td {
 }
 .accept-role{
   font-weight: 600;
+}
+
+.lock-icon{
+  width: 2vw;
+  height: 5vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2vw;
+  color: gray;
+}
+.modal-body-container{
+  padding-bottom: 5vh;
+}
+.modal-body-wrap{}
+.profile-image-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-image{
+  border: 2px solid black;
+  width: 6vw;
+  height: 6vw;
+  border-radius: 50%;
+}
+.edit-user{
+  margin-top: 2vh;
+  cursor: default;
+}
+.edit-user:hover{
+  color: blue;
+  text-decoration: underline;
+}
+.modal-form{
+  width: 80%;
+  margin-left: 5%;
+  margin-top: 5vh;
+}
+.modal-input{
+  height: 8vh;
+  width: inherit;
+  border-radius: 0.5vw;
+  font-size: 1.2vw;
+  padding-left: 0.5vw;
+  border: none;
+  outline: none;
+  padding-top: 3vh;
+}
+.modal-label{
+  width: fit-content;
+  height: fit-content;
+  font-size: 1vw;
+  /* color: blue; */
+  margin-left: 0.5vw;
+  position: absolute;
+}
+.modal-login{
+  position: relative;
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 0.5vw;
+}
+
+.modal-default{
+  position: relative;
+  width: 100%;
+  border: 1px solid blue;
+  border-radius: 0.5vw;
+}
+
+
+#modal-empty{
+  border: 2px solid red;
+}
+.edit-button{
+  display: flex;
+  justify-content: end;
+  height: 5vh;
+  margin-top: 3vh;
+}
+
+.l-bt-edit{
+  height: inherit;
+  width: fit-content;
+  border-radius: 0.5vw;
+  font-size: 1.2vw;
 }

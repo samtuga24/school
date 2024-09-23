@@ -45,6 +45,7 @@ export const ViewApplicants = () => {
     }
     return (
         <div className='view-container'>
+            <div className='login-header'>Applicants</div>
             <div className='result-table'>
                 <table className='table-width'>
                     <tr>

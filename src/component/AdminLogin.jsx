@@ -71,6 +71,7 @@ export const AdminLogin = () => {
     }
     return (
         <div className='login-container'>
+            <div className='login-header'>Login</div>
             <form action="" onSubmit={submitForm} className='login-wrap'>
                 <div>
                     <div className='login'><input className='login-input' type="text" name="uname" value={form.uname} onChange={onUpdateForm} id="" placeholder='username' /></div>

@@ -127,6 +127,7 @@ export const Applicant = () => {
     }
     return (
         <div className='login-container'>
+            <div className='login-header'>Create New User Account</div>
             <form action="" onSubmit={submitForm} className='add-wrap'>
                 <div>
                     <div className='login'><input className='login-input' type="text" name="fname" id="" value={form.fname} onChange={onUpdateForm} placeholder='First Name' /></div>

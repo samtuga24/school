@@ -23,7 +23,7 @@ export const JobList = () => {
         return (
           <div className='accept-wrap'>
             <div className='salutation'>Dear, {role.uname}</div>
-            <div className='offer-body'>You have been offered a role as a <span className='accept-role'>{role.jobs[index].title}</span> in our firm. Please Contact on 0249628340 to schedule an interview at your own convinience</div>
+            <div className='offer-body'>You have been offered a role as a <span className='accept-role'>{role.jobs[index].title}</span> in our firm. Please Contact on 0550028470 to schedule an interview at your own convinience</div>
           </div>
         );
       })}

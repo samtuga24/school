@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faFilter, faMagnifyingGlass, faCediSign, faPenToSquare, faEye } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faFilter, faMagnifyingGlass, faCediSign, faPenToSquare, faEye, faGears, faAngleDown, faAngleUp, faLock } from '@fortawesome/free-solid-svg-icons'
 import { faBell } from '@fortawesome/free-regular-svg-icons'
 import { Usernav } from './Usernav'
 import axios from 'axios'
 import { Apply } from './Apply'
 import { JobList } from './JobList'
+import { Footer } from './Footer'
 export const UserPage = () => {
     const getData = localStorage.getItem("user");
     const parsedData = JSON.parse(getData);
@@ -19,6 +20,23 @@ export const UserPage = () => {
     const [job, setJob] = useState(false)
     const [apply, setApply] = useState()
     const [client, setClient] = useState()
+    const [settingDown, setSettingDown] = useState(false)
+    const [settingUp, setSettingUp] = useState(true);
+    const [postJob, setPostJob] = useState(false)
+    const [addStaff, setStaff] = useState(false)
+    const [addStudent, setStudent] = useState(false)
+    const [viewList, setList] = useState(false)
+    const [applicant, setApplicant] = useState(false)
+
+    const settingClick = () => {
+        setSettingDown(!settingDown)
+        setSettingUp(!settingUp)
+    }
+
+    const settingDownClick = () => {
+        setSettingDown(!settingDown)
+        setSettingUp(!settingUp)
+    }
     const dashClick = () => {
         setDash(true)
         setUpdate(false)
@@ -125,6 +143,25 @@ export const UserPage = () => {
                         <div className='side-nav-text-1'>Update CV</div>
                     </div>
 
+                    <div className='side-nav-item'>
+                        <div className='side-nav-icon'><FontAwesomeIcon icon={faGears} /></div>
+                        <div className='side-nav-text-2'>Settings</div>
+                        {settingUp && <div className='side-nav-icon' onClick={settingClick}><FontAwesomeIcon icon={faAngleDown} /></div>}
+                        {settingDown && <div className='side-nav-icon-2' onClick={settingDownClick}><FontAwesomeIcon icon={faAngleUp} /></div>}
+
+                    </div>
+                    {settingUp &&
+                        <>
+                            <div className='side-nav-item' onClick={updateClick}>
+                                <div className='side-nav-icon'><FontAwesomeIcon icon={faPenToSquare} /></div>
+                                <div className='side-nav-text-1'>Edit Profile</div>
+                            </div>
+                            <div className='side-nav-item' onClick={updateClick}>
+                                <div className='side-nav-icon'><FontAwesomeIcon icon={faLock} /></div>
+                                <div className='side-nav-text-1'>Change Password</div>
+                            </div>
+                        </>
+                    }
                 </div>
                 <div className='user-page-content'>
 
@@ -170,8 +207,7 @@ export const UserPage = () => {
                 </div>
 
             </div>
-
-
+            <Footer />
         </>
 
     )
