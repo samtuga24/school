@@ -7,7 +7,12 @@ import axios from 'axios'
 import { Apply } from './Apply'
 import { JobList } from './JobList'
 import { Footer } from './Footer'
+import { UserEdit } from './UserEdit'
 export const UserPage = () => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false)
+    }
     const getData = localStorage.getItem("user");
     const parsedData = JSON.parse(getData);
     const GET_JOBS_API = "http://localhost:8080/get-jobs"
@@ -22,6 +27,7 @@ export const UserPage = () => {
     const [client, setClient] = useState()
     const [settingDown, setSettingDown] = useState(false)
     const [settingUp, setSettingUp] = useState(true);
+    const [edit, setEdit] = useState(true);
     const [postJob, setPostJob] = useState(false)
     const [addStaff, setStaff] = useState(false)
     const [addStudent, setStudent] = useState(false)
@@ -42,6 +48,7 @@ export const UserPage = () => {
         setUpdate(false)
         setView(false)
         setJob(false)
+        setEdit(false)
     }
 
     const updateClick = () => {
@@ -49,21 +56,24 @@ export const UserPage = () => {
         setUpdate(true)
         setView(false)
         setJob(false)
+        setEdit(false)
     }
 
-    // const viewClick = () => {
-    //     setDash(false)
-    //     setUpdate(false)
-    //     setView(true)
-    //     setJob(false)
-
-    // }
+    const editClick = () => {
+        setDash(false)
+        setUpdate(false)
+        setView(true)
+        setJob(false)
+        setEdit(true)
+        setShow(true)
+    }
 
     const jobClick = () => {
         setDash(false)
         setUpdate(false)
         setView(false)
         setJob(true)
+        setEdit(false)
     }
 
 
@@ -152,7 +162,7 @@ export const UserPage = () => {
                     </div>
                     {settingUp &&
                         <>
-                            <div className='side-nav-item' onClick={updateClick}>
+                            <div className='side-nav-item' onClick={editClick}>
                                 <div className='side-nav-icon'><FontAwesomeIcon icon={faPenToSquare} /></div>
                                 <div className='side-nav-text-1'>Edit Profile</div>
                             </div>
@@ -203,6 +213,7 @@ export const UserPage = () => {
 
                         {update && <Apply />}
                         {job && <JobList />}
+                        {edit && <UserEdit show={show} hide={handleClose}/>}
                     </div>
                 </div>
 

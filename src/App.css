@@ -38,6 +38,13 @@
   align-items: center;
   color: gray;
   justify-content: center;
+   margin-right: 0.5vw;
+
+}
+.nav-icon img{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
 }
 
 .nav-list{
@@ -708,6 +715,7 @@ td {
 }
 .modal-body-container{
   padding-bottom: 5vh;
+  background-color: rgb(253, 253, 255);
 }
 .modal-body-wrap{
   margin-top: 3vh;
@@ -720,9 +728,17 @@ td {
   position: relative;
 }
 .profile-image{
-  border: 2px solid rgb(189, 187, 187);
+  border: 3px solid #f1f1f1;
   width: 9vw;
   height: 9vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-image img{
+  width: 92%;
+  height: 92%;
   border-radius: 50%;
 }
 .default-image{
@@ -749,6 +765,7 @@ td {
   right: 12vw;
   background-color: #f5f4f4;
 }
+
 .edit-user:hover{
   background-color: #e0e0e0;
 }
