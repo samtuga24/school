@@ -709,7 +709,9 @@ td {
 .modal-body-container{
   padding-bottom: 5vh;
 }
-.modal-body-wrap{}
+.modal-body-wrap{
+  margin-top: 3vh;
+}
 .profile-image-wrap{
   display: flex;
   flex-direction: column;
@@ -717,10 +719,20 @@ td {
   align-items: center;
 }
 .profile-image{
-  border: 2px solid black;
-  width: 6vw;
-  height: 6vw;
+  border: 2px solid rgb(189, 187, 187);
+  width: 9vw;
+  height: 9vw;
   border-radius: 50%;
+}
+.default-image{
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6vw;
+  color: rgb(218, 220, 220);
 }
 .edit-user{
   margin-top: 2vh;
@@ -731,7 +743,7 @@ td {
   text-decoration: underline;
 }
 .modal-form{
-  width: 80%;
+  width: 90%;
   margin-left: 5%;
   margin-top: 5vh;
 }
@@ -758,6 +770,7 @@ td {
   width: 100%;
   border: 1px solid grey;
   border-radius: 0.5vw;
+  margin-bottom: 5vh;
 }
 
 .modal-default{
@@ -765,6 +778,7 @@ td {
   width: 100%;
   border: 1px solid blue;
   border-radius: 0.5vw;
+  margin-bottom: 5vh;
 }
 
 
