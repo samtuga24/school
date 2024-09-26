@@ -717,6 +717,7 @@ td {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .profile-image{
   border: 2px solid rgb(189, 187, 187);
@@ -735,12 +736,21 @@ td {
   color: rgb(218, 220, 220);
 }
 .edit-user{
-  margin-top: 2vh;
   cursor: default;
+  height: 3vw;
+  width: 3vw;
+  font-size: 1.5vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 12vw;
+  background-color: #f5f4f4;
 }
 .edit-user:hover{
-  color: blue;
-  text-decoration: underline;
+  background-color: #e0e0e0;
 }
 .modal-form{
   width: 90%;
@@ -779,6 +789,7 @@ td {
   border: 1px solid blue;
   border-radius: 0.5vw;
   margin-bottom: 5vh;
+  color: blue;
 }
 
 
@@ -797,4 +808,7 @@ td {
   width: fit-content;
   border-radius: 0.5vw;
   font-size: 1.2vw;
+}
+.select-edit{
+  display: none;
 }
