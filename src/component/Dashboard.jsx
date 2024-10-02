@@ -10,6 +10,7 @@ import { Footer } from './Footer'
 import { ViewUsers } from './ViewUsers'
 import { UpdatePass } from './UpdatePass'
 import { EditProfile } from './EditProfile'
+import { AddUser } from './AddUser'
 
 export const Dashboard = () => {
     const [angleDown, setAngleDown] = useState(false)
@@ -30,6 +31,8 @@ export const Dashboard = () => {
     const handleClose = () => {
         setShow(false)
     }
+
+    
     const settingClick = () => {
         setSettingDown(!settingDown)
         setSettingUp(!settingUp)
@@ -212,8 +215,8 @@ export const Dashboard = () => {
                     </div>
                     <div className='dash-content'>
                         {postJob && <AddJob />}
-                        {addUser && <Applicant />}
-                        <EditProfile show={show} hide={handleClose}/>
+                        {addUser && <AddUser />}
+                        <EditProfile show={show} hide={handleClose} exit={handleClose}/>
                         {viewUser && <ViewUsers />}
                         {viewList && <ListedJobs />}
                         {changePass && <UpdatePass />}

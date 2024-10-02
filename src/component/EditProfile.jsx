@@ -12,6 +12,7 @@ export const EditProfile = (props) => {
   const [defaultClick, setDefault] = useState(true)
   const [inputLength, setLength] = useState(false)
   const [file, setFile] = useState('')
+  const [length, setFileLength] = useState(false)
   const [picture, setPicture] = useState(null);
   const [imgData, setImgData] = useState(null);
   const IMG_URL = "http://localhost:8080/display/pass/" + parsedData.imageName
@@ -21,11 +22,14 @@ export const EditProfile = (props) => {
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         setImgData(reader.result);
+        if (e.target.files[0].name.includes('.jpg' || '.png' || '.JPG' || '.PNG')) {
+          setFileLength(!length)
+        }
       });
       reader.readAsDataURL(e.target.files[0]);
     }
   };
-  console.log(parsedData)
+  console.log(length)
 
   const clickDefault = () => {
     setClick(true)
@@ -55,18 +59,18 @@ export const EditProfile = (props) => {
 
   return (
     <>
-      <Modal show={props.show} onHide={props.hide} className=''>
+      <Modal show={props.show} onHide={props.hide} className='' onExit={() => setFileLength(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Profile</Modal.Title>
         </Modal.Header>
         <div className='modal-body-container'>
           <div className='modal-body-wrap'>
             <div className='profile-image-wrap'>
-              {/* {<FontAwesomeIcon icon={faUser}/>} */}
               <div className='profile-image'>
                 <div className='default-image'>
-                  {parsedData.imageName ? <img src={IMG_URL} alt="" /> : <FontAwesomeIcon icon={faUser}/>}
-                  
+                  {length && <img src={imgData} alt="" />}
+                  {!length && parsedData.imageName ? <img src={IMG_URL} alt="" /> : !length && <FontAwesomeIcon icon={faUser} />}
+
                 </div>
               </div>
               <div className='edit-user' onClick={clickEdit}><FontAwesomeIcon icon={faCamera} /></div>

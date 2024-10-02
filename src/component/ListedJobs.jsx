@@ -21,11 +21,11 @@ export const ListedJobs = () => {
             <div className='result-table'>
                 <table className='table-width'>
                     <tr>
-                        <th>Job Title</th>
-                        <th>Qualification</th>
-                        <th>Years of Experience</th>
-                        <th>Salary</th>
-                        <th>deadline</th>
+                        <th className='t-data'>Job Title</th>
+                        <th className='t-data'>Qualification</th>
+                        <th className='t-data'>Years of Experience</th>
+                        <th className='t-data'>Salary</th>
+                        <th className='t-data'>deadline</th>
                     </tr>
                     {jobs.map((job, index) => {
                         return (

@@ -11,6 +11,7 @@ export const UserEdit = (props) => {
     const [third, setThird] = useState(false)
     const [defaultClick, setDefault] = useState(true)
     const [inputLength, setLength] = useState(false)
+    const [length, setFileLength] = useState(false)
     const [file, setFile] = useState('')
     const [picture, setPicture] = useState(null);
     const [imgData, setImgData] = useState(null);
@@ -21,11 +22,15 @@ export const UserEdit = (props) => {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
                 setImgData(reader.result);
+                if (e.target.files[0].name.includes('.jpg' | '.png' | '.PNG' | '.JPG')) {
+                    setFileLength(!length)
+                }
             });
             reader.readAsDataURL(e.target.files[0]);
+
         }
     };
-    console.log(parsedData)
+
 
     const clickDefault = () => {
         setClick(true)
@@ -54,18 +59,17 @@ export const UserEdit = (props) => {
     }
     return (
         <>
-            <Modal show={props.show} onHide={props.hide} className=''>
+            <Modal show={props.show} onHide={props.hide} className='' onExit={() => setFileLength(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Profile</Modal.Title>
                 </Modal.Header>
                 <div className='modal-body-container'>
                     <div className='modal-body-wrap'>
                         <div className='profile-image-wrap'>
-                            {/* {<FontAwesomeIcon icon={faUser}/>} */}
                             <div className='profile-image'>
                                 <div className='default-image'>
-                                    {parsedData.imageName ? <img src={IMG_URL} alt="" /> : <FontAwesomeIcon icon={faUser} />}
-
+                                    {length && <img src={imgData} alt="" />}
+                                    {parsedData.imageName ? <img src={IMG_URL} alt="" /> : !length &&<FontAwesomeIcon icon={faUser} />}
                                 </div>
                             </div>
                             <div className='edit-user' onClick={clickEdit}><FontAwesomeIcon icon={faCamera} /></div>
@@ -87,7 +91,7 @@ export const UserEdit = (props) => {
                                     <div className='modal-label'>Username</div>
                                     <input className='modal-input' type="text" name="uname" id="" defaultValue={parsedData.uname} />
                                 </div>
-                                <div className='edit-button'><button className='l-bt-edit' type='submit' onClick={() => alert()}>Save changes</button></div>
+                                <div className='edit-button'><button className='l-bt-edit' type='submit' onClick={() => alert(length)}>Save changes</button></div>
                             </div>
                         </form>
                     </div>

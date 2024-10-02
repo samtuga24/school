@@ -50,6 +50,7 @@ export const AdminLogin = () => {
             axios
                 .post(LOGIN_API, form)
                 .then((response) => {
+                    console.log(response.data.status)
                     if (response.data.token) {
                         localStorage.setItem("user", JSON.stringify(response.data))
                         if (response.data.roles.includes("Admin")) {
@@ -59,9 +60,13 @@ export const AdminLogin = () => {
                         } else if (response.data.roles.includes("Student")) {
                             navigate("/user")
                             window.location.reload()
-                        } else if (response.data.roles.includes("inactive")) {
+                        } 
 
-                        }
+                    }
+                    if(response.data.status.includes("inactive")){
+                        navigate("/login")
+                        window.location.reload()
+                        alert("inactive")
                     }
                 })
                 .catch((error) => {

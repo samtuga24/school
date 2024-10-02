@@ -115,8 +115,30 @@
 }
 
 .accept-wrap{
-  width: 96%;
-  height: fit-content;
+  display: flex;
+  padding-left: 1vw;
+}
+.accept{
+  width: 7vw;
+  height: 6vh;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  color: #ffffff;
+  margin-right: 1vw;
+}
+
+.view{
+  width: 7.5vw;
+  height: 6vh;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  color: #ffffff;
 }
 .salutation{
   font-size: 1.5vw;
@@ -263,7 +285,7 @@
 }
 .dash-content{
   height: inherit;
-  width: 80vw;
+  width: 100%;
 }
 .side-nav-item{
   height: 8vh;
@@ -552,12 +574,13 @@
 }
 .desc-text{
   width: 68%;
-  height: 10vh;
+  height: inherit;
   display: flex;
   align-items: center;
   padding-left: 1vw;
   cursor: default;
   word-wrap: break-word;
+  line-height: 3vh;
 }
 .apply-button{
   height: 5vh;
@@ -620,7 +643,6 @@ textarea{
   width: 100%;
   display: flex;
   justify-content: center;
-  border: 1px solid red;
 }
 .view-container{
 display: flex;
@@ -630,7 +652,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 z-index: 1;
-
 }
 .result-table{
 width: 90%;
@@ -641,13 +662,13 @@ z-index: 1;
   margin-top: 2vh;
 }
 table,
-th,
+th, 
 td {
   border: 1px solid black;
   border-collapse: collapse;
   height: 5vh;
   cursor: default;
-  
+  width: 100%;
 }
 
 .table-row:hover{
@@ -656,16 +677,31 @@ td {
 .t-data{
   padding-left: 1vw;
   font-size: 1.3vw;
+  border: 1px solid black;
+  width: 12%;
 }
-.accept-btn{
-  border-radius: 0.5vw;
+
+.t-data-1{
+  font-size: 1.3vw;
+  border: 1px solid black;
+  width: 24%;
+}
+.t-data-t{
+  padding-left: 1vw;
+  font-size: 1.3vw;
+  border: 1px solid black;
+  width: 16%;
+}
+
+
+.applicant-action{
   background-color: green;
-  width: 10vw;
-  height: 5vh;
-  margin-right: 1vw;
+  height: inherit;
+  width: 100%;
   display: flex;
   justify-content: center;
   color: #ffffff;
+  border-radius: 0.5vw;
 }
 .reject-btn{
   background-color: red;
@@ -829,3 +865,85 @@ td {
 .select-edit{
   display: none;
 }
+.view-action{
+  height: inherit;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.view-delete{
+  width: 55%;
+  height: 83%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1vw;
+  border-radius: 0.5vw;
+  font-weight: 700;
+  color: #ffffff;
+}
+.trash{
+  margin-right: 0.5vw;
+}
+.view-print{
+  width: 40%;
+  height: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+  border-radius: 0.5vw;
+  background-color: blue;
+  color: #ffffff;
+  font-size: 1vw;
+  font-weight: 700;
+}
+.deactivate{
+  height: 5vh;
+  font-size: 1.5vw;
+  padding-left: 2vw;
+  font-weight: 600;
+  cursor: default;
+}
+.deactivate-buttons{
+  height: 10vh;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2vw;
+}
+.deactivate-cancel{
+  background-color: red;
+  width: 6vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2vw;
+  border-radius: 0.5vw;
+  margin-right: 1vw;
+  cursor: default;
+  color: #ffffff;
+  font-weight: 700;
+}
+.x-mark{
+  margin-right: 0.3vw;
+}
+.deactivate-yes{
+  background-color: green;
+  width: 5vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2vw;
+  border-radius: 0.5vw;
+  cursor: default;
+  color: #ffffff;
+  font-weight: 700;
+}
+.view-cv{}

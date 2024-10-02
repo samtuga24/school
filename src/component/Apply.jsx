@@ -24,12 +24,12 @@ export const Apply = () => {
     }
 
     if (fileLength) {
-      var format = [".jpeg", ".JPG", ".jpg", ".JPEG", ".PNG", ".png"];
+      var format = [".PDF", ".pdf"];
       var extension = file.name.substr(file.name.indexOf('.'))
       if (format.includes(extension)) {
         ext = true;
       } else {
-        alert("only jpg or png format is supported")
+        alert("only PDF format is supported")
         ext = false;
       }
 
@@ -55,7 +55,7 @@ export const Apply = () => {
       <div className='login-container'>
         <div className='login-wrap'>
           <div className='upload'>Upload CV(PDF format Only)</div>
-          <div className='login'><input className='login-input-file' type="file" name="applicantCV" onChange={onUpdate} id="" /></div>
+          <div className='login'><input className='login-input-file' type="file" name="applicantCV" onChange={onUpdate} id="" accept='application/pdf'/></div>
           <div className='login-button'><button className='l-bt' onClick={onSubmit}>submit</button></div>
         </div>
       </div>
