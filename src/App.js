@@ -20,13 +20,6 @@ function App() {
         <Route exact path="user" element={<UserPage />} />
         <Route exact path="dash" element={<Dashboard />} />
         <Route exact path="create-user" element={<Applicant />} />
-        {/* <AdminLogin/> */}
-        {/* <Dashboard/> */}
-        {/* <Applicant  /> */}
-        {/* <UserPage/> */}
-        {/* <Apply/> */}
-        {/* <Usernav/> */}
-        {/* <AddJob/> */}
       </Routes>
     </HashRouter>
   );

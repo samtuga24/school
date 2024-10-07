@@ -845,7 +845,9 @@ td {
   color: blue;
 }
 
-
+.modal-default:focus{
+  border: 2px solid red;
+}
 #modal-empty{
   border: 2px solid red;
 }

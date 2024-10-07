@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCamera } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 export const UserEdit = (props) => {
     const getData = localStorage.getItem("user");
     const parsedData = JSON.parse(getData);
@@ -16,21 +17,88 @@ export const UserEdit = (props) => {
     const [picture, setPicture] = useState(null);
     const [imgData, setImgData] = useState(null);
     const IMG_URL = "http://localhost:8080/display/pass/" + parsedData.imageName
-    const onChangePicture = e => {
-        if (e.target.files[0]) {
-            setPicture(e.target.files[0]);
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                setImgData(reader.result);
-                if (e.target.files[0].name.includes('.jpg' | '.png' | '.PNG' | '.JPG')) {
-                    setFileLength(!length)
-                }
-            });
-            reader.readAsDataURL(e.target.files[0]);
 
+    const [form, setForm] = useState({
+        fname: "",
+        lname: "",
+        uname: ""
+      });
+    
+      const onUpdateForm = e => {
+        const newFormState = {
+          ...form,
+          [e.target.name]: e.target.value
+        };
+        setForm(newFormState);
+    
+      }
+
+  const onChangePicture = e => {
+    if (e.target.files[0]) {
+      setPicture(e.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImgData(reader.result);
+        setFileLength(true)
+
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  }
+
+    const submitForm = e => {
+
+        e.preventDefault();
+        const checkFname = form.fname;
+        const checkLname = form.lname;
+        const checkUname = form.uname;
+    
+        let fnameLength;
+        let lnameLength;
+        let unameLength;
+    
+        if (checkFname.trim().length == 0) {
+          fnameLength = false;
+        } else {
+          fnameLength = true;
         }
-    };
-
+    
+        if (fnameLength) {
+          if (checkLname.trim().length == 0) {
+            lnameLength = false;
+    
+          } else {
+            lnameLength = true;
+          }
+        }
+    
+        if (lnameLength) {
+          if (checkUname.trim().length == 0) {
+            unameLength = false;
+    
+          } else {
+            unameLength = true;
+          }
+        }
+    
+    
+          let formData = new FormData();
+          formData.append("fname",form.fname)
+          formData.append("lname",form.lname)
+          formData.append("uname",form.uname)
+          formData.append("passport",picture)
+          axios
+              .patch(`http://localhost:8080/update/${parsedData.uname}`, formData)
+      
+              .then((response) => {
+                alert(response.data)
+              })
+              .catch((error) => {
+                  console.log(error)
+              })
+    
+        
+      }
 
     const clickDefault = () => {
         setClick(true)
@@ -68,8 +136,7 @@ export const UserEdit = (props) => {
                         <div className='profile-image-wrap'>
                             <div className='profile-image'>
                                 <div className='default-image'>
-                                    {length && <img src={imgData} alt="" />}
-                                    {parsedData.imageName ? <img src={IMG_URL} alt="" /> : !length &&<FontAwesomeIcon icon={faUser} />}
+                                    {length ? <img src={imgData} alt="" /> : parsedData.imageName ? <img src={IMG_URL} alt="" /> : <FontAwesomeIcon icon={faUser} />}
                                 </div>
                             </div>
                             <div className='edit-user' onClick={clickEdit}><FontAwesomeIcon icon={faCamera} /></div>
@@ -79,19 +146,19 @@ export const UserEdit = (props) => {
                             <div>
                                 <div className={click ? 'modal-default' : 'modal-login'} onMouseDown={clickDefault}>
                                     <div className='modal-label'>First Name</div>
-                                    <input className='modal-input' type="text" name="fname" id="" defaultValue={parsedData.fname} />
+                                    <input className='modal-input' type="text" name="fname" onChange={onUpdateForm} id="" defaultValue={parsedData.fname} />
                                 </div>
 
                                 <div className={second ? 'modal-default' : 'modal-login'} onMouseDown={clickSecond}>
                                     <div className='modal-label'>Last Name</div>
-                                    <input className='modal-input' type="text" name="lname" id="" defaultValue={parsedData.lname} />
+                                    <input className='modal-input' type="text" name="lname" onChange={onUpdateForm} id="" defaultValue={parsedData.lname} />
                                 </div>
 
                                 <div className={third ? 'modal-default' : 'modal-login'} onMouseDown={clickThird}>
                                     <div className='modal-label'>Username</div>
-                                    <input className='modal-input' type="text" name="uname" id="" defaultValue={parsedData.uname} />
+                                    <input className='modal-input' type="text" name="uname" onChange={onUpdateForm} id="" defaultValue={parsedData.uname} />
                                 </div>
-                                <div className='edit-button'><button className='l-bt-edit' type='submit' onClick={() => alert(length)}>Save changes</button></div>
+                                <div className='edit-button'><button className='l-bt-edit' type='submit' onClick={(e) => submitForm(e)}>Save changes</button></div>
                             </div>
                         </form>
                     </div>
